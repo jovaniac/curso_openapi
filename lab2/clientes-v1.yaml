@@ -1,0 +1,344 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based coping.
+# Code completion support is available so start typing for available options.
+swagger: "2.0"
+
+# This is your document metadata
+info:
+  version: "0.0.1"
+  title: API de Clientes del banco PODER
+  description: |
+   API para poder realizar la captacion de nuevos clientes del banco poder
+
+host:
+  wwww.bancopoder.com
+schemes:
+  - https
+
+basePath: /clientes/v1
+
+securityDefinitions:
+  Bearer:
+    description: >
+      Para acceder a la API se debe pasar un token válido en cada peticion.
+      Se debe utilizar en el encabezado 'Authorization' :
+        Bearer: 2xgsLJmBAtTNIU8ngee8XbmDvaNGsx
+    type: apiKey
+    name: Authorization
+    in: header
+
+paths:
+ /:
+  post:
+    summary: alta cliente
+    description: alta de clientes para el banco
+    parameters:
+        - in: body
+          name: datos de entrada del cliente
+          required: true
+          schema:
+            $ref: "#/definitions/clienteInput"
+    responses:
+        201:
+          description: Creacion exitosa de un cliente
+          schema:
+              $ref: "#/definitions/clienteBancoResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  get:
+    summary: Busqueda de clientes
+    description: consulta de clientes de banco poder
+    parameters:
+        - name: idCliente de banco poder
+          in: query
+          description: id unico del cliente
+          required: true
+          type: string
+    responses:
+        200:
+          description: Consulta exitosa de un cliente
+          schema:
+              $ref: "#/definitions/clienteInput2"
+        404:
+          description: No existe la información
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  put:
+    summary: Actualizacion de clientes
+    description: actualizacion de clientes
+    parameters:
+        - in: body
+          name: datos de entrada del cliente
+          required: true
+          schema:
+            $ref: "#/definitions/clienteInput2"
+    responses:
+        200:
+          description: Actualizacion exitosa de un cliente
+          schema:
+              $ref: "#/definitions/clienteBancoActualizacionResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: No existe la información
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  delete:
+    summary: Baja de clientes
+    description: Baja de clientes a nivel logico
+    parameters:
+        - name: idCliente
+          in: query
+          description: id unico del cliente
+          required: true
+          type: string
+    responses:
+        200:
+          description: Eliminacion exitosa de un cliente
+          schema:
+              $ref: "#/definitions/clienteBancoBorradoResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: No existe la información
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+definitions:
+  clienteInput:
+    type: object
+    properties:
+      nombre:
+        type: string
+        description: Nombre del cliente
+        example: "Yaridel"
+      apellidoPaterno:
+        type: string
+        description: Apellido Paterno
+        example: "Arzate"
+      apellidoMaterno:
+        type: string
+        description: Apellido Materno
+        example: "Landa"
+      edad:
+        type: string
+        description: Edad actual del cliente
+        example: "25"
+      rfc:
+        type: string
+        description: RFC actualizado del cliente
+        example: "CUPU800825569"
+      email:
+        type: string
+        description: Correo electronico mas reciente
+        example: "yaridel@gmail.com"
+      direccion:
+        type: string
+        description: Direccion del domicilio actual del cliente
+        example: "calle esperanza, num 10 de abril, Temixco Morelos"
+      codigoPostal:
+        type: string
+        description: Codigo postal del domicilio actual
+        example: "62588"
+      referencias:
+        type: string
+        description: Referencias del domicilio registrado
+        example: "Frente a la base de camiones LOS PEPES"
+      genero:
+        type: string
+        description: Horientacion sexual
+        example: "F"
+
+  clienteInput2:
+    type: object
+    properties:
+      idCliente:
+        type: string
+        description: idCliente generado del cliente
+        example: "1000"
+      nombre:
+        type: string
+        description: Nombre del cliente
+        example: "Yaridel"
+      apellidoPaterno:
+        type: string
+        description: Apellido Paterno
+        example: "Arzate"
+      apellidoMaterno:
+        type: string
+        description: Apellido Materno
+        example: "Landa"
+      edad:
+        type: string
+        description: Edad actual del cliente
+        example: "25"
+      rfc:
+        type: string
+        description: RFC actualizado del cliente
+        example: "CUPU800825569"
+      email:
+        type: string
+        description: Correo electronico mas reciente
+        example: "yaridel@gmail.com"
+      direccion:
+        type: string
+        description: Direccion del domicilio actual del cliente
+        example: "calle esperanza, num 10 de abril, Temixco Morelos"
+      codigoPostal:
+        type: string
+        description: Codigo postal del domicilio actual
+        example: "62588"
+      referencias:
+        type: string
+        description: Referencias del domicilio registrado
+        example: "Frente a la base de camiones LOS PEPES"
+      genero:
+        type: string
+        description: Horientacion sexual
+        example: "F"
+
+  clienteBancoResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El Cliente se ha creado exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "201"
+      detalles: 
+        type: object
+        description: Describe la creacion del cliente 
+        $ref: '#/definitions/clienteInput2'
+  
+  clienteBancoActualizacionResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El Cliente se ha actualizado exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "200"
+      detalles: 
+        type: object
+        description: Describe la actualizacion del cliente 
+        $ref: '#/definitions/clienteInput2'
+
+  clienteBancoBorradoResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El Cliente se ha dado de baja exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "200"
+
+  ErrorResponse400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.api-clientes.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Los datos del cliente contienen caracteres invalidos"
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Debes introducir correctamente los datos"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "98755343"
+                 
+  ErrorResponse500:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "500.api-clientes.1200"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Error al realizar la operación."
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Ocurrio un error inesperado, intentar nuevamente"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "22920181120162829642"
+  
+            
+  ErrorResponse404:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "404.api-clientes.1100"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "No existe la información solicitada."
+      id:
+        type: string
+        description: Id de la entidad a buscar
+        example: "143"
+      descripcion:
+        type: array
+        items:
+          type: string
+          example: ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

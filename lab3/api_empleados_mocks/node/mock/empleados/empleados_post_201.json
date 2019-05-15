@@ -1,0 +1,17 @@
+{
+  "mensaje": "El empleado se ha creado exitosamente",
+  "codigo": "201",
+  "detalles": {
+    "nombre": "Omar",
+    "apellidoMaterno": "Gonzalez",
+    "apellidoPaterno": "Ramirez",
+    "edad": "26",
+    "curp": "VEGA780615HDFLML08",
+    "rfc": "CUPU800825569",
+    "domicilio": "Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX",
+    "imagen": "https://www.base64encode.org/",
+    "puesto": "Software Engineer Cobol",
+    "status": "Activo",
+    "numeroDeEmpleado": "306949"
+  }
+}

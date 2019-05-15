@@ -1,0 +1,6 @@
+{
+    "codigo": "400.api-clientes.1000",
+    "mensaje": "Los datos del cliente contienen caracteres invalidos",
+    "informacion": "Debes introducir correctamente los datos",
+    "tracking": "98755343"
+}

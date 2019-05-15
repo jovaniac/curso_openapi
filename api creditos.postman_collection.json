@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "751aa821-2658-433f-9cee-5a977ca74ecd",
+		"name": "api creditos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Creditos post 201",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pais\":\"Mexico\",\r\n   \"canal\":\"1\",\r\n   \"sucursal\":{\r\n      \"id\":\"54\",\r\n      \"nombre\":\"Sucursal Leones\",\r\n      \"telefono\":\"5580965421\",\r\n      \"estado\":\"43\",\r\n      \"municipio\":\"10\",\r\n      \"numero\":\"50392\"\r\n   },\r\n   \"producto\":\"5\",\r\n   \"monto\":\"20000\",\r\n   \"plazo\":\"2\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"Companero de Trabajo\",\r\n         \"aniosConocimiento\":\"5\"\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/creditos/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creditos",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Creditos post 400",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pais\":\"Mexico\",\r\n   \"canal\":\"1x\",\r\n   \"sucursal\":{\r\n      \"id\":\"54\",\r\n      \"nombre\":\"Sucursal Leones\",\r\n      \"telefono\":\"5580965421\",\r\n      \"estado\":\"43\",\r\n      \"municipio\":\"10\",\r\n      \"numero\":\"50392\"\r\n   },\r\n   \"producto\":\"5\",\r\n   \"monto\":\"20000\",\r\n   \"plazo\":\"2\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"Companero de Trabajo\",\r\n         \"aniosConocimiento\":\"5\"\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/creditos/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creditos",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Creditos post 500",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pais\":\"USA\",\r\n   \"canal\":\"2\",\r\n   \"sucursal\":{\r\n      \"id\":\"89\",\r\n      \"nombre\":\"Sucursal Texas\",\r\n      \"telefono\":\"549495938294\",\r\n      \"estado\":\"1\",\r\n      \"municipio\":\"90\",\r\n      \"numero\":\"60392\"\r\n   },\r\n   \"producto\":\"5\",\r\n   \"monto\":\"10000\",\r\n   \"plazo\":\"24\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Olivia\",\r\n         \"apellidos\":\"Castillo Zarate\",\r\n         \"tipoReferencia\":\"Vecina\",\r\n         \"aniosConocimiento\":\"1\"\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/creditos/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creditos",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Creditos put 200",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pais\":\"Mexico\",\r\n   \"canal\":\"1\",\r\n   \"sucursal\":{\r\n      \"id\":\"34\",\r\n      \"nombre\":\"Sucursal Cuernavaca\",\r\n      \"telefono\":\"7776785434\",\r\n      \"estado\":\"12\",\r\n      \"municipio\":\"8\",\r\n      \"numero\":\"20567\"\r\n   },\r\n   \"producto\":\"5\",\r\n   \"monto\":\"10000\",\r\n   \"plazo\":\"36\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"Companero de Trabajo\",\r\n         \"aniosConocimiento\":\"5\"\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/creditos/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creditos",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Creditos put 400",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pais\":\"Mexico\",\r\n   \"canal\":\"x\",\r\n   \"sucursal\":{\r\n      \"id\":\"34\",\r\n      \"nombre\":\"Sucursal Cuernavaca\",\r\n      \"telefono\":\"7776785434\",\r\n      \"estado\":\"12\",\r\n      \"municipio\":\"8\",\r\n      \"numero\":\"20567\"\r\n   },\r\n   \"producto\":\"5\",\r\n   \"monto\":\"10000\",\r\n   \"plazo\":\"36\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"Companero de Trabajo\",\r\n         \"aniosConocimiento\":\"5\"\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/creditos/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creditos",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Creditos put 500",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"pais\":\"Mexico\",\r\n   \"canal\":\"2\",\r\n   \"sucursal\":{\r\n      \"id\":\"34\",\r\n      \"nombre\":\"Sucursal Cuernavaca\",\r\n      \"telefono\":\"7776785434\",\r\n      \"estado\":\"12\",\r\n      \"municipio\":\"8\",\r\n      \"numero\":\"20567\"\r\n   },\r\n   \"producto\":\"5\",\r\n   \"monto\":\"10000\",\r\n   \"plazo\":\"36\",\r\n   \"referencias\":[\r\n      {\r\n         \"nombre\":\"Israel\",\r\n         \"apellidos\":\"Ortiz Feria\",\r\n         \"tipoReferencia\":\"Companero de Trabajo\",\r\n         \"aniosConocimiento\":\"5\"\r\n      }\r\n   ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/creditos/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"creditos",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

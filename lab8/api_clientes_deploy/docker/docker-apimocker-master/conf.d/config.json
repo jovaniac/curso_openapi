@@ -1,0 +1,14 @@
+{
+  "mockDirectory": "/apimocker/responses",
+  "latency": 100,
+  "webServices": {
+    "default": {
+      "mockFile": "success.json",
+      "latency": 500,
+      "verbs": [
+        "get",
+        "post"
+      ]
+    }
+  }
+}

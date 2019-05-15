@@ -1,0 +1,28 @@
+{
+    "mensaje": "La solicitud de credito se ha actualizado exitosamente",
+    "codigo": "200",
+    "detalles": {
+      "idCredito": "1100305940",
+        "pais":"Mexico",
+        "canal":"1",
+        "sucursal":{
+           "id":"34",
+           "nombre":"Sucursal Cuernavaca",
+           "telefono":"7776785434",
+           "estado":"12",
+           "municipio":"8",
+           "numero":"20567"
+        },
+        "producto":"5",
+        "monto":"10000",
+        "plazo":"36",
+        "referencias":[
+           {
+              "nombre":"Israel",
+              "apellidos":"Ortiz Feria",
+              "tipoReferencia":"Companero de Trabajo",
+              "aniosConocimiento":"5"
+           }
+        ]
+    }
+  }

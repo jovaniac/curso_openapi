@@ -1,0 +1,19 @@
+{
+    "idCredito": "1100305940",
+    "capital": "10000",
+    "intereses": "0",
+    "detalle": [
+      {
+        "idPago": "12",
+        "fechaAplicacion": "2019-02-20",
+        "concepto": "Abono de credito autorizado",
+        "importe": "500"
+      },
+      {
+        "idPago": "13",
+        "fechaAplicacion": "2019-03-20",
+        "concepto": "Abono de credito autorizado",
+        "importe": "600"
+      }
+    ]
+  }

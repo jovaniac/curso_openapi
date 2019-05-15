@@ -1,0 +1,71 @@
+{
+    "mockDirectory": "/api/node/mock",
+    "quiet": false,
+    "port": "8000",
+    "latency": 50,
+    "logRequestHeaders": false,
+    "webServices": {
+      "clientes/v1":{
+        "latency": 10,
+        "verbs": [
+            "post",
+            "get",
+            "put",
+            "delete"
+        ],
+        "switch": [
+                "idCliente",
+                "$.nombre" ,
+                "$.apellidoPaterno" ,
+                "$.apellidoMaterno" ,
+                "$.edad", 
+                "$.rfc" ,
+                "$.email" ,
+                "$.direccion",
+                "$.codigoPostal",
+                "$.referencias",
+                "$.genero"
+            ],
+        "responses": {
+                "get": {
+                    "httpStatus": 400,
+                    "mockFile": "clientes/clientes_400.json"
+                }, 
+                "post": {
+                    "httpStatus": 400,
+                    "mockFile": "clientes/clientes_400.json"
+                },
+                "put": {
+                    "httpStatus": 400,
+                    "mockFile": "clientes/clientes_400.json"
+                },
+                "delete": {
+                    "httpStatus": 400,
+                    "mockFile": "clientes/clientes_400.json"
+                }
+            },
+            "switchResponses": {
+                
+                "$.nombreYaridel$.apellidoPaternoArzate$.apellidoMaternoLanda$.edad25$.rfcCUPU800825569$.emailyaridel%40gmail.com$.direccioncalle%20esperanza%2C%20num%2010%20de%20abril%2C%20Temixco%20Morelos$.codigoPostal62588$.referenciasFrente%20a%20la%20base%20de%20camiones%20LOS%20PEPES$.generoF":{"httpStatus": 201, "mockFile": "clientes/clientes_post_201.json"},
+                "$.nombreJovani$.apellidoPaternoArzate$.apellidoMaternoLanda$.edad27$.rfc456787656453454$.emailjovaniac%40gmail.com$.direccionbugambilias%202%2C%20colonia%2010%20de%20abril%2C%20Temixco%20Morelos$.codigoPostal0634560$.referenciasenfrente%20de%20la%20tortilleria%20ALFONSOS$.generoM":{"httpStatus": 201, "mockFile": "clientes/clientes_post_201_2.json"},
+
+                "$.nombreJovani$.apellidoPaternoArzate$.apellidoMaternoLanda$.edad27s$.rfc456787656453454$.emailjovaniac%40gmail.com$.direccionbugambilias%202%2C%20colonia%2010%20de%20abril%2C%20Temixco%20Morelos$.codigoPostal0634560$.referenciasenfrente%20de%20la%20tortilleria%20ALFONSOS$.generoMM":{"httpStatus": 400, "mockFile": "clientes/clientes_400.json"},
+                "$.nombreJovani$.apellidoPaternoArzate$.apellidoMaternoLanda":{"httpStatus": 500, "mockFile": "clientes/clientes_500.json"},
+
+                "idCliente1000":{"httpStatus": 200, "mockFile": "clientes/clientes_get_200.json"},
+
+                "idCliente1000s":{"httpStatus": 400, "mockFile": "clientes/clientes_400.json"},
+                "idCliente2000":{"httpStatus": 500, "mockFile": "clientes/clientes_500.json"},
+
+                "$.nombreYaridel$.apellidoPaternoArzate$.apellidoMaternoReyna$.edad25$.rfcCUPU800825569$.emailyaridel%40gmail.com$.direccioncalle%20esperanza%2C%20num%20de%20abril%2C%20Temixco%20Morelos$.codigoPostal62588$.referenciasFrente%20a%20la%20base%20de%20camiones%20LOS%20PEPES$.generoF":{"httpStatus": 200, "mockFile": "clientes/clientes_put_200.json"},
+                "$.nombreYaridel$.apellidoPaternoArzate$.apellidoMaternoReyna$.edad25s$.rfcCUPU800825569x$.emailyaridel%40gmail.com$.direccioncalle%20esperanza%2C%20num%20de%20abril%2C%20Temixco%20Morelos$.codigoPostal62588$.referenciasFrente%20a%20la%20base%20de%20camiones%20LOS%20PEPES$.genero55":{"httpStatus": 400, "mockFile": "clientes/clientes_400.json"},
+                "$.nombreYaridel$.apellidoPaternoArzate":{"httpStatus": 500, "mockFile": "clientes/clientes_500.json"},
+                
+                "idCliente3000":{"httpStatus": 200, "mockFile": "clientes/clientes_delete_200.json"},
+                "idCliente3000x":{"httpStatus": 400, "mockFile": "clientes/clientes_400.json"},
+                "idClienteeliminacion":{"httpStatus": 500, "mockFile": "clientes/clientes_500.json"}
+
+            }
+      }
+    }
+}

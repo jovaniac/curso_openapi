@@ -1,0 +1,17 @@
+{
+  "mensaje": "El Cliente se ha creado exitosamente",
+  "codigo": "201",
+  "detalles": {
+    "id": "2000",
+    "nombre": "Jovani",
+    "apellidoPaterno": "Arzate",
+    "apellidoMaterno": "Landa",
+    "edad": "26",
+    "rfc": "456787656453454sds",
+    "email": "jovaniac@gmail.com",
+    "direccion": "bugambilias 2, colonia 10 de abril, Temixco Morelos",
+    "codigoPostal": "0634560",
+    "referencias": "enfrente de la tortilleria ALFONSOS",
+    "genero": "M"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "mensaje": "El pago se realizo exitosamente",
+    "codigo": "201",
+    "detalles": {
+      "idPago": "12",
+      "fechaAplicacion": "2019-02-20",
+      "concepto": "Abono de credito autorizado",
+      "importe": "500"
+    }
+}

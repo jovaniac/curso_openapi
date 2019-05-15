@@ -1,0 +1,6 @@
+{
+    "codigo": "400.api-creditos.1000",
+    "mensaje": "Los datos del saldo a consultar contienen caracteres invalidos",
+    "informacion": "Debes introducir correctamente los datos",
+    "tracking": "876553453"
+}

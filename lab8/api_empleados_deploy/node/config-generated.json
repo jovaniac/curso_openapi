@@ -1,0 +1,70 @@
+{
+    "mockDirectory": "/api/node/mock",
+    "quiet": false,
+    "port": "8000",
+    "latency": 50,
+    "logRequestHeaders": false,
+    "webServices": {
+      "empleados/v1":{
+        "latency": 10,
+        "verbs": [
+            "post",
+            "get",
+            "put",
+            "delete"
+        ],
+        "switch": [
+            "id",
+            "$.nombre",
+            "$.apellidoMaterno",
+            "$.apellidoPaterno",
+            "$.edad",
+            "$.curp",
+            "$.rfc",
+            "$.domicilio",
+            "$.imagen",
+            "$.puesto",
+            "$.status",
+            "$.numeroDeEmpleado"
+            ],
+        "responses": {
+                "get": {
+                    "httpStatus": 400,
+                    "mockFile": "empleados/empleados_get_200.json"
+                }, 
+                "post": {
+                    "httpStatus": 400,
+                    "mockFile": "empleados/empleados_400.json"
+                },
+                "put": {
+                    "httpStatus": 400,
+                    "mockFile": "empleados/empleados_400.json"
+                },
+                "delete": {
+                    "httpStatus": 400,
+                    "mockFile": "empleados/empleados_400.json"
+                }
+            },
+            "switchResponses": {
+                
+                "$.nombreOmar$.apellidoMaternoGonzalez$.apellidoPaternoRamirez$.edad26$.curpVEGA780615HDFLML08$.rfcCUPU800825569$.domicilioBugambilias%2010%2C%20Colonia%2010%20de%20abril%2C%20Coyoacan%20CDMX$.imagenaHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8%3D$.puestoSoftware%20Engineer%20Cobol$.statusActivo$.numeroDeEmpleado306949":{"httpStatus": 201, "mockFile": "empleados/empleados_post_201.json"},
+
+                "id2":{"httpStatus":200,"mockFile":"empleados/empleados_get_id_200.json"},
+                "id10":{"httpStatus":404,"mockFile":"empleados/empleados_404.json"},
+                "id11s":{"httpStatus":400,"mockFile":"empleados/empleados_400.json"},
+                "id200":{"httpStatus":500,"mockFile":"empleados/empleados_500.json"},
+
+                "id3":{"httpStatus":200,"mockFile":"empleados/empleados_delete_200.json"},
+                "id110":{"httpStatus":200,"mockFile":"empleados/empleados_delete_200.json"},
+                "id191":{"httpStatus":500,"mockFile":"empleados/empleados_500.json"},
+                "id9":{"httpStatus":404,"mockFile":"empleados/empleados_404.json"},
+                
+                "id120$.nombreOmar$.apellidoMaternoGonzalez$.apellidoPaternoRamirez$.edad26$.curpVEGA780615HDFLML08$.rfcCUPU800825569$.domicilioBugambilias%2010%2C%20Colonia%2010%20de%20abril%2C%20Coyoacan%20CDMX$.imagenaHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8%3D$.puestoSoftware%20Engineer%20Sr%20Java$.statusActivo$.numeroDeEmpleado306949":{"httpStatus": 404, "mockFile": "empleados/empleados_404.json"},
+                "id2$.nombreOmar$.apellidoMaternoGonzalez$.apellidoPaternoRamirez$.edad26$.curpVEGA780615HDFLML08$.rfcCUPU800825569$.domicilioBugambilias%2010%2C%20Colonia%2010%20de%20abril%2C%20Coyoacan%20CDMX$.imagenaHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8%3D$.puestoSoftware%20Engineer%20Sr%20Java$.statusActivo$.numeroDeEmpleado306949":{"httpStatus": 200, "mockFile": "empleados/empleados_put_200.json"},
+                "idss$.nombreOmar$.apellidoMaternoGonzalez$.apellidoPaternoRamirez$.edad26$.curpVEGA780615HDFLML08$.rfcCUPU800825569$.domicilioBugambilias%2010%2C%20Colonia%2010%20de%20abril%2C%20Coyoacan%20CDMX$.imagenaHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8%3D$.puestoSoftware%20Engineer%20Sr%20Java$.statusActivo$.numeroDeEmpleado306949":{"httpStatus": 400, "mockFile": "empleados/empleados_400.json"},
+                "id560$.nombreOmar$.apellidoMaternoGonzalez$.apellidoPaternoRamirez$.edad26$.curpVEGA780615HDFLML08$.rfcCUPU800825569$.domicilioBugambilias%2010%2C%20Colonia%2010%20de%20abril%2C%20Coyoacan%20CDMX$.imagenaHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8%3D$.puestoSoftware%20Engineer%20Sr%20Java$.statusActivo$.numeroDeEmpleado306949":{"httpStatus": 500, "mockFile": "empleados/empleados_500.json"}            
+
+            }
+      }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "note": "This is a test config file.",
+  "quiet": false,
+  "port": "8080",
+  "latency": 50,
+  "allowedHeaders": ["Content-Type", "my-custom-header"],
+  "webServices": {
+    "test": {
+      "responses": {
+        "test response"
+      },
+      "latency": 20,
+      "verbs": ["get"]
+    }
+  }
+}

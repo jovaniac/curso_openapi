@@ -1,0 +1,143 @@
+{
+    "mockDirectory": "/api/node/mock",
+    "quiet": false,
+    "port": "8000",
+    "latency": 50,
+    "logRequestHeaders": false,
+    "webServices": {
+      "creditos/v1":{
+        "latency": 10,
+        "verbs": [
+            "post",
+            "get",
+            "put",
+            "delete"
+        ],
+        "switch": [
+                "$.pais",
+                "$.canal",
+                "$.sucursal.id",
+                "$.sucursal.nombre",
+                "$.sucursal.telefono",
+                "$.sucursal.estado" ,
+                "$.sucursal.municipio",
+                "$.sucursal.numero",
+                "$.producto",
+                "$.monto",
+                "$.plazo" ,
+                "$.referencias[0].nombre",
+                "$.referencias[0].apellidos",
+                "$.referencias[0].tipoReferencia",
+                "$.referencias[0].aniosConocimiento"
+            ],
+        "responses": {
+                "get": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                }, 
+                "post": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                },
+                "put": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                },
+                "delete": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                }
+            },
+            "switchResponses": {
+                
+                "$.paisMexico$.canal1$.sucursal.id54$.sucursal.nombreSucursal%20Leones$.sucursal.telefono5580965421$.sucursal.estado43$.sucursal.municipio10$.sucursal.numero50392$.producto5$.monto20000$.plazo2$.referencias[0].nombreIsrael$.referencias[0].apellidosOrtiz%20Feria$.referencias[0].tipoReferenciaCompanero%20de%20Trabajo$.referencias[0].aniosConocimiento5":{"httpStatus":201,"mockFile":"creditos/creditos_post_201.json"},
+                "$.paisUSA$.canal2$.sucursal.id89$.sucursal.nombreSucursal%20Texas$.sucursal.telefono549495938294$.sucursal.estado1$.sucursal.municipio90$.sucursal.numero60392$.producto5$.monto10000$.plazo24$.referencias[0].nombreOlivia$.referencias[0].apellidosCastillo%20Zarate$.referencias[0].tipoReferenciaVecina$.referencias[0].aniosConocimiento1":{"httpStatus":500,"mockFile":"creditos/creditos_500.json"},
+
+                "$.paisMexico$.canal1$.sucursal.id34$.sucursal.nombreSucursal%20Cuernavaca$.sucursal.telefono7776785434$.sucursal.estado12$.sucursal.municipio8$.sucursal.numero20567$.producto5$.monto10000$.plazo36$.referencias[0].nombreIsrael$.referencias[0].apellidosOrtiz%20Feria$.referencias[0].tipoReferenciaCompanero%20de%20Trabajo$.referencias[0].aniosConocimiento5":{"httpStatus":200,"mockFile":"creditos/creditos_put_200.json"},
+                "$.paisMexico$.canal2$.sucursal.id34$.sucursal.nombreSucursal%20Cuernavaca$.sucursal.telefono7776785434$.sucursal.estado12$.sucursal.municipio8$.sucursal.numero20567$.producto5$.monto10000$.plazo36$.referencias[0].nombreIsrael$.referencias[0].apellidosOrtiz%20Feria$.referencias[0].tipoReferenciaCompanero%20de%20Trabajo$.referencias[0].aniosConocimiento5":{"httpStatus":500,"mockFile":"creditos/creditos_500.json"}
+
+            }
+      },
+      "creditos/v1/aprobaciones":{
+        "latency": 10,
+        "verbs": [
+            "post"
+        ],
+        "switch": [
+                "$.idCredito",
+                "$.idCliente"
+            ],
+        "responses": {
+                "post": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_aprobaciones_400.json"
+                }
+            },
+            "switchResponses": {
+                "$.idCredito1100305940$.idCliente391849":{"httpStatus":201,"mockFile":"creditos/creditos_aprobaciones_post_201.json"},
+                "$.idCredito1200305940$.idCliente391849":{"httpStatus":500,"mockFile":"creditos/creditos_500.json"}
+               
+            }
+      },
+      "creditos/v1/:idCredito/saldos":{
+        "latency": 10,
+        "verbs": [
+            "get"
+        ],
+        "switch": [
+                "idCredito"
+            ],
+        "responses": {
+                "get": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                }
+            },
+            "switchResponses": {
+                "idCredito1100305940":{"httpStatus":200,"mockFile":"creditos/creditos_saldos_get_200.json"},
+                "idCredito1100305941":{"httpStatus":500,"mockFile":"creditos/creditos_500.json"}
+               
+            }
+      },
+      "creditos/v1/:idCredito/pagos":{
+        "latency": 10,
+        "verbs": [
+            "get"
+        ],
+        "switch": [
+                "idCredito"
+            ],
+        "responses": {
+                "get": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                }
+            },
+            "switchResponses": {
+                "idCredito1100305940":{"httpStatus":200,"mockFile":"creditos/creditos_pagos_get_200.json"},
+                "idCredito1100305943":{"httpStatus":500,"mockFile":"creditos/creditos_500.json"}      
+            }
+      },
+      "creditos/v1/pagos":{
+        "latency": 10,
+        "verbs": [
+            "post"
+        ],
+        "switch": [
+                "$.idCredito",
+                "$.concepto",
+                "$.importe"
+            ],
+        "responses": {
+                "post": {
+                    "httpStatus": 400,
+                    "mockFile": "creditos/creditos_400.json"
+                }
+            },
+            "switchResponses": {
+                "$.idCredito1100305940$.conceptoAbono$.importe500":{"httpStatus":201,"mockFile":"creditos/creditos_saldos_post_201.json"},
+                "$.idCredito1100305941$.conceptoAbono$.importe500":{"httpStatus":500,"mockFile":"creditos/creditos_500.json"}      
+            }
+      }
+    }
+}

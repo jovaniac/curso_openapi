@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: api-empleados
+  labels:
+    app: api-empleados
+spec:
+  selector:
+    matchLabels:
+      app: api-empleados
+  template:
+    metadata:
+      labels:
+        app: api-empleados
+    spec:
+      containers:
+        - name: api-empleados
+          image: jovaniac/api-empleados:0.1
+          ports:
+            - containerPort: 8000
+              protocol: TCP

@@ -1,0 +1,466 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based coping.
+# Code completion support is available so start typing for available options.
+swagger: "2.0"
+
+# This is your document metadata
+info:
+  version: "0.0.1"
+  title: API de Empleados del banco PODER
+  description: |
+   API para poder realizar diferentes operaciones para los empleados del banco PODER
+
+host:
+  wwww.banco.com
+schemes:
+  - https
+
+basePath: /empleados/v1
+
+securityDefinitions:
+  Bearer:
+    description: >
+      Para acceder a la API se debe pasar un token válido en todas las peticiones.
+      La siguiente sintaxis se debe utilizar en el encabezado 'Authorization' :
+        Bearer: 2zzLJmBAtTNIU8nF8e8XbmDvaNGsx
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+paths:
+  /:
+    get:
+      summary: Consulta de todos los empleados
+      description: |
+        consulta todos los empleados del banco PODER
+      responses:
+        200:
+          description: Ok
+          schema:
+              $ref: "#/definitions/empleadoResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: No encontrado
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+
+    post:
+      summary: "Creacion de empleados"
+      description: Creacion de empleados del banco PODER
+      parameters:
+        - in: body
+          name: parametros de entrada para crear empleados
+          required: true
+          schema:
+            $ref: "#/definitions/empleadoInput"
+      responses:
+        201:
+          description: Ok
+          schema:
+            $ref: "#/definitions/empleadoCreacionResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+    put:
+      summary: 'Modificacion de datos del empleado'
+      description: Modificacion del empleado, solo algunos datos autorizados para banco PODER
+      parameters:
+        - in: body
+          name: parametros de entrada para actualizar empleados
+          required: true
+          schema:
+            $ref: "#/definitions/empleadoInput3"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/empleadoActualizacionResponse'
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: No encontrado
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  /{id}:
+    get:
+      summary: Busca un empleado en especifico
+      description: Consulta de un empleado por su identificador de empresa
+      parameters:
+        - name: id
+          in: query
+          description: id
+          required: true
+          type: string
+      responses:
+         200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/empleadoResponse'
+         400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+         404:
+          description: No encontrado
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+         500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+    delete:
+      summary: 'Borrar empleados, dar de baja empleados'
+      description: Cuando un empleado cierra la relacion laboral con la empresa se cambia su estatus interno
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+           $ref: '#/definitions/empleadoBorradoResponse'
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: No encontrado
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+
+definitions:
+  empleadoResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Identificador del empleado
+        example: "1"
+      nombre:
+        type: string
+        description: Nombre del empleado
+        example: "Omar"
+      apellidoMaterno:
+        type: string
+        description: Apellido Paterno del empleado
+        example: "Gonzalez"
+      apellidoPaterno:
+        type: string
+        description: Apellido Materno del empleado
+        example: "Ramirez"
+      edad:
+        type: string
+        description: Edad actual de empleado
+        example: "26"
+      curp:
+        type: string
+        description: Curp del empleado
+        example: "VEGA780615HDFLML08"
+      rfc:
+        type: string
+        description: RFC del empleado
+        example: "CUPU800825569"
+      domicilio:
+        type: string
+        description: Domicilio actual del empleado
+        example: "Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX"
+      imagen:
+        type: string
+        description: Imagen en base 64 del empleado
+        example: "aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8="
+      puesto:
+        type: string
+        description: Puesto a asignar al empleado
+        example: "Software Engineer Cobol"
+      status:
+        type: string
+        description: Estatus actual del empleado
+        example: "Activo"
+      numeroDeEmpleado:
+       type: string
+       description: Numero de identificacion para empleados de BANCO PODER
+       example: "306949"
+  
+  empleadoInput:
+    type: object
+    properties:
+      nombre:
+        type: string
+        description: Nombre del empleado
+        example: "Omar"
+      apellidoMaterno:
+        type: string
+        description: Apellido Paterno del empleado
+        example: "Gonzalez"
+      apellidoPaterno:
+        type: string
+        description: Apellido Materno del empleado
+        example: "Ramirez"
+      edad:
+        type: string
+        description: Edad actual de empleado
+        example: "26"
+      curp:
+        type: string
+        description: Curp del empleado
+        example: "VEGA780615HDFLML08"
+      rfc:
+        type: string
+        description: RFC del empleado
+        example: "CUPU800825569"
+      domicilio:
+        type: string
+        description: Domicilio actual del empleado
+        example: "Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX"
+      imagen:
+        type: string
+        description: Imagen en base 64 del empleado
+        example: "aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8="
+      puesto:
+        type: string
+        description: Puesto a asignar al empleado
+        example: "Software Engineer Cobol"
+      status:
+        type: string
+        description: Estatus actual del empleado
+        example: "Activo"
+      numeroDeEmpleado:
+       type: string
+       description: Numero de identificacion para empleados de BANCO PODER
+       example: "306949"
+
+  empleadoInput3:
+    type: object
+    properties:
+      id:
+        type: string
+        description: id del empleado
+        example: 1
+      nombre:
+        type: string
+        description: Nombre del empleado
+        example: "Omar"
+      apellidoMaterno:
+        type: string
+        description: Apellido Paterno del empleado
+        example: "Gonzalez"
+      apellidoPaterno:
+        type: string
+        description: Apellido Materno del empleado
+        example: "Ramirez"
+      edad:
+        type: string
+        description: Edad actual de empleado
+        example: "26"
+      curp:
+        type: string
+        description: Curp del empleado
+        example: "VEGA780615HDFLML08"
+      rfc:
+        type: string
+        description: RFC del empleado
+        example: "CUPU800825569"
+      domicilio:
+        type: string
+        description: Domicilio actual del empleado
+        example: "Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX"
+      imagen:
+        type: string
+        description: Imagen en base 64 del empleado
+        example: "aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8="
+      puesto:
+        type: string
+        description: Puesto a asignar al empleado
+        example: "Software Engineer Cobol"
+      status:
+        type: string
+        description: Estatus actual del empleado
+        example: "Activo"
+      numeroDeEmpleado:
+       type: string
+       description: Numero de identificacion para empleados de BANCO PODER
+       example: "306949"
+
+  empleadoCreacionResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El empleado se ha creado exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "201"
+      detalles: 
+        type: object
+        description: Describe la creacion del cliente 
+        $ref: '#/definitions/empleadoInput2'
+
+  empleadoInput2:
+    type: object
+    properties:
+      nombre:
+        type: string
+        description: Nombre del empleado
+        example: "Omar"
+      apellidoMaterno:
+        type: string
+        description: Apellido Paterno del empleado
+        example: "Gonzalez"
+      apellidoPaterno:
+        type: string
+        description: Apellido Materno del empleado
+        example: "Ramirez"
+      edad:
+        type: string
+        description: Edad actual de empleado
+        example: "26"
+      curp:
+        type: string
+        description: Curp del empleado
+        example: "VEGA780615HDFLML08"
+      rfc:
+        type: string
+        description: RFC del empleado
+        example: "CUPU800825569"
+      domicilio:
+        type: string
+        description: Domicilio actual del empleado
+        example: "Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX"
+      imagen:
+        type: string
+        description: Imagen en base 64 del empleado
+        example: "aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8="
+      puesto:
+        type: string
+        description: Puesto a asignar al empleado
+        example: "Software Engineer Cobol"
+      status:
+        type: string
+        description: Estatus actual del empleado
+        example: "Activo"
+      numeroDeEmpleado:
+       type: string
+       description: Numero de identificacion para empleados de BANCO PODER
+       example: "306949"
+  
+  empleadoActualizacionResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El empleado se ha actualizado exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "200"
+      detalles: 
+        type: object
+        description: Describe la actualizacion del cliente 
+        $ref: '#/definitions/empleadoResponse'
+
+  empleadoBorradoResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El empleado se ha dado de baja exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "200"
+
+  ErrorResponse400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.api-empleados.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Los datos del empleado contienen caracteres invalidos"
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Debes introducir correctamente los datos"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "98755343"
+                 
+  ErrorResponse500:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "500.api-empleados.1200"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Error al realizar la operación."
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Ocurrio un error inesperado, intentar nuevamente"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "22920181120162829642"
+  
+            
+  ErrorResponse404:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "404.api-empleados.1100"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "No existe la información solicitada."
+      id:
+        type: string
+        description: Id de la entidad a buscar
+        example: "143"
+      descripcion:
+        type: array
+        items:
+          type: string
+          example: ""
+
+                

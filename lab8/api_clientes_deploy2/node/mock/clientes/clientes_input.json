@@ -1,0 +1,25 @@
+[{
+    "nombre": "Jovani",
+    "apellidoPaterno": "Arzate",
+    "apellidoMaterno": "Landa",
+    "edad": "26",
+    "rfc": "456787656453454",
+    "email": "jovaniac@gmail.com",
+    "direccion": "bugambilias 2, colonia 10 de abril, Temixco Morelos",
+    "codigoPostal": "0634560",
+    "referencias": "enfrente de la tortilleria ALFONSOS",
+    "genero": "M"
+  },
+  {
+    "nombre": "Yaridel",
+    "apellidoPaterno": "Arzate",
+    "apellidoMaterno": "Landa",
+    "edad": "25",
+    "rfc": "CUPU800825569",
+    "email": "yaridelal435@gmail.com",
+    "direccion": "calle esperanza, 10 de abril, Temixco Morelos",
+    "codigoPostal": "62588",
+    "referencias": "Frente a la base de camiones LOS PEPES",
+    "genero": "F"
+  }
+]

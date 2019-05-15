@@ -1,0 +1,17 @@
+{
+  "mensaje": "El Cliente se ha creado exitosamente",
+  "codigo": "201",
+  "detalles": {
+    "id": "1000",
+    "nombre": "Yaridel",
+    "apellidoPaterno": "Arzate",
+    "apellidoMaterno": "Landa",
+    "edad": "25",
+    "rfc": "CUPU800825569",
+    "email": "yaridelal435@gmail.com",
+    "direccion": "calle esperanza, 10 de abril, Temixco Morelos",
+    "codigoPostal": "62588",
+    "referencias": "Frente a la base de camiones LOS PEPES",
+    "genero": "F"
+  }
+}

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: api-clientes
+  labels:
+    app: api-clientes
+spec:
+  selector:
+    matchLabels:
+      app: api-clientes
+  template:
+    metadata:
+      labels:
+        app: api-clientes
+    spec:
+      containers:
+        - name: api-clientes
+          image: jovaniac/api-clientes:0.1
+          ports:
+            - containerPort: 8000
+              protocol: TCP

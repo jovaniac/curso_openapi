@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: api-empleados
+spec:
+  type: LoadBalancer
+  selector:
+    app: api-empleados
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
+
+    

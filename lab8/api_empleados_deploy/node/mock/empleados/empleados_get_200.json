@@ -1,0 +1,58 @@
+[
+    {
+      "id": "1",
+      "nombre": "Yaridel",
+      "apellidoMaterno": "Landa",
+      "apellidoPaterno": "Reyna",
+      "edad": "25",
+      "curp": "YARI780615HDFLML09",
+      "rfc": "YARI800825569",
+      "domicilio": "10 de abril, Colonia nopalera, Temixco Morelos",
+      "imagen": "aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy9hc2Rhc2Q=",
+      "puesto": "Abogada Sr",
+      "status": "Activo",
+      "numeroDeEmpleado": "302940"
+    },
+    {
+        "id": "2",
+        "nombre": "Omar",
+        "apellidoMaterno": "Gonzalez",
+        "apellidoPaterno": "Ramirez",
+        "edad": "26",
+        "curp": "VEGA780615HDFLML08",
+        "rfc": "CUPU800825569",
+        "domicilio": "Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX",
+        "imagen": "https://www.base64encode.org/",
+        "puesto": "Software Engineer Cobol",
+        "status": "Activo",
+        "numeroDeEmpleado": "306949"
+      },
+      {
+        "id": "3",
+        "nombre": "Oseas",
+        "apellidoMaterno": "Arzate",
+        "apellidoPaterno": "Varela",
+        "edad": "50",
+        "curp": "OSEA780615HDFLML11",
+        "rfc": "OSEAS800859394",
+        "domicilio": "pase noche buena, ahuatlan, Cuernavaca Morelos",
+        "imagen": "b3JnL2FzZGFzZHNhZGFzZGFzZGFkYXM=",
+        "puesto": "Contador",
+        "status": "Activo",
+        "numeroDeEmpleado": "306931"
+      },
+      {
+        "id": "4",
+        "nombre": "Betzabe",
+        "apellidoMaterno": "Gonzalez",
+        "apellidoPaterno": "Perez",
+        "edad": "26",
+        "curp": "BETZA780615HDFLML08",
+        "rfc": "BETZA800804031",
+        "domicilio": "Burgoa 20, Colonia azteca, Zacatepec Morelos",
+        "imagen": "b3JkYXNkYXNkYXNnL2FzZGFzZHNhZGFzZGFzZGFkYXM=",
+        "puesto": "Cajera",
+        "status": "Activo",
+        "numeroDeEmpleado": "306941"
+      }
+]

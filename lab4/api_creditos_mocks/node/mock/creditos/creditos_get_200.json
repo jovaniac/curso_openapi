@@ -1,0 +1,26 @@
+{
+    "idCredito": "1100305940",
+    "pais": "Mexico",
+    "canal": "1",
+    "sucursal": {
+      "id": "54",
+      "nombre": "Sucural Leones",
+      "telefono": "5580965421",
+      "estado": "43",
+      "municipio": "10",
+      "numero": "50392"
+    },
+    "cliente": "391849",
+    "producto": "5",
+    "monto": "20000",
+    "plazo": "2",
+    "fecha": "2019-02-17",
+    "referencias": [
+      {
+        "nombre": "Israel",
+        "apellidos": "Ortiz Feria",
+        "tipoReferencia": "Compañero de Trabajo",
+        "aniosConocimiento": "5"
+      }
+    ]
+  }

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: api-creditos
+  labels:
+    app: api-creditos
+spec:
+  selector:
+    matchLabels:
+      app: api-creditos
+  template:
+    metadata:
+      labels:
+        app: api-creditos
+    spec:
+      containers:
+        - name: api-creditos
+          image: jovaniac/api-creditos:0.1
+          ports:
+            - containerPort: 8000
+              protocol: TCP

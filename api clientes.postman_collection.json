@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "3c657ca7-8039-4f95-b696-7a0eac4389a8",
+		"name": "api clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Clientes post 201",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Yaridel\",\r\n    \"apellidoPaterno\": \"Arzate\",\r\n    \"apellidoMaterno\": \"Landa\",\r\n    \"edad\": \"25\",\r\n    \"rfc\": \"CUPU800825569\",\r\n    \"email\": \"yaridel@gmail.com\",\r\n    \"direccion\": \"calle esperanza, num 10 de abril, Temixco Morelos\",\r\n    \"codigoPostal\": \"62588\",\r\n    \"referencias\": \"Frente a la base de camiones LOS PEPES\",\r\n    \"genero\": \"F\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes post 201 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Jovani\",\n    \"apellidoPaterno\": \"Arzate\",\n    \"apellidoMaterno\": \"Landa\",\n    \"edad\": \"27\",\n    \"rfc\": \"456787656453454\",\n    \"email\": \"jovaniac@gmail.com\",\n    \"direccion\": \"bugambilias 2, colonia 10 de abril, Temixco Morelos\",\n    \"codigoPostal\": \"0634560\",\n    \"referencias\": \"enfrente de la tortilleria ALFONSOS\",\n    \"genero\": \"M\"\n  }"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes post 400",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Jovani\",\n    \"apellidoPaterno\": \"Arzate\",\n    \"apellidoMaterno\": \"Landa\",\n    \"edad\": \"27s\",\n    \"rfc\": \"456787656453454\",\n    \"email\": \"jovaniac@gmail.com\",\n    \"direccion\": \"bugambilias 2, colonia 10 de abril, Temixco Morelos\",\n    \"codigoPostal\": \"0634560\",\n    \"referencias\": \"enfrente de la tortilleria ALFONSOS\",\n    \"genero\": \"M\"\n  }"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes post 500",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Jovani\",\n    \"apellidoPaterno\": \"Arzate\",\n    \"apellidoMaterno\": \"Landa\"\n  }"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes get 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1?idCliente=1000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "idCliente",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes get 400",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1?id=1000s",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1000s"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes get 500",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1?id=2000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes put 200",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Yaridel\",\n    \"apellidoPaterno\": \"Arzate\",\n    \"apellidoMaterno\": \"Reyna\",\n    \"edad\": \"25\",\n    \"rfc\": \"CUPU800825569\",\n    \"email\": \"yaridel@gmail.com\",\n    \"direccion\": \"calle esperanza, num de abril, Temixco Morelos\",\n    \"codigoPostal\": \"62588\",\n    \"referencias\": \"Frente a la base de camiones LOS PEPES\",\n    \"genero\": \"F\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes put 400",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Yaridel\",\n    \"apellidoPaterno\": \"Arzate\",\n    \"apellidoMaterno\": \"Reyna\",\n    \"edad\": \"25s\",\n    \"rfc\": \"CUPU800825569x\",\n    \"email\": \"yaridel@gmail.com\",\n    \"direccion\": \"calle esperanza, num de abril, Temixco Morelos\",\n    \"codigoPostal\": \"62588\",\n    \"referencias\": \"Frente a la base de camiones LOS PEPES\",\n    \"genero\": \"55\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes put 500",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Yaridel\",\n    \"apellidoPaterno\": \"Arzate\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes delete 200",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1?idCliente=3000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "idCliente",
+							"value": "3000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes delete 400",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1?idCliente=3000x",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "idCliente",
+							"value": "3000x"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Clientes delete 500",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/clientes/v1?idCliente=eliminacion",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"clientes",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "idCliente",
+							"value": "eliminacion"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

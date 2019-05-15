@@ -1,0 +1,686 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based coping.
+# Code completion support is available so start typing for available options.
+swagger: "2.0"
+
+# This is your document metadata
+info:
+  version: "0.0.1"
+  title: API de Creditos del banco PODER
+  description: |
+   API para poder realizar diferentes operaciones de los creditos que ofrece el banco poder al mercado latino
+
+host:
+  wwww.banco.com
+schemes:
+  - https
+
+basePath: /creditos/v1
+
+securityDefinitions:
+  Bearer:
+    description: >
+      Para acceder a la API se debe pasar un token válido en todas las peticiones.
+      La siguiente sintaxis se debe utilizar en el encabezado 'Authorization' :
+        Bearer: 2zzLJmBAtTNIU8nF8e8XbmDvaNGsx
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+paths:
+  /:    
+    post:
+      summary: Solicitud de un credito bancario
+      description: Creacion de solicitudes de credito del banco PODER
+      tags:
+        - Operaciones de Credito
+      parameters:
+        - in: body
+          name: parametros de entrada para creditos de productos bancarios
+          required: true
+          schema:
+            $ref: "#/definitions/creditos"
+      responses:
+        201:
+          description: Ok
+          schema:
+            $ref: "#/definitions/solicitudCreditoResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'    
+    get:
+      summary: consulta de una solicitud de credito bancario
+      description: consulta de solicitudes de credito 
+      tags:
+        - Operaciones de Credito
+      parameters:
+        - in: query
+          name: idCredito
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: "#/definitions/creditosProceso"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+    put:
+      summary: actualizacion de una solicitud de credito bancario
+      description: actualizacion de solicitudes de credito 
+      tags:
+        - Operaciones de Credito
+      parameters:
+        - in: body
+          name: parametros de entrada para creditos de productos bancarios
+          required: true
+          schema:
+            $ref: "#/definitions/creditos"
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: "#/definitions/solicitudActualizacionResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        404:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+    delete:
+      summary: dar de baja una solicitud de credito 
+      description: dar de baja una solicitud de credito 
+      tags:
+        - Operaciones de Credito
+      parameters:
+        - in: query
+          name: idCredito
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: "#/definitions/solicitudBorradoResponse"
+        404:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  /aprobaciones:
+    post:
+      summary: aprobacion de una solicitud de credito
+      description: se aprueba una solicitud de credito
+      tags:
+        - Operaciones de Validacion de Solicitudes
+      parameters:
+        - in: body
+          name: parametros de entrada para realizar una aprobacion de un credito en proceso
+          required: true
+          schema:
+            $ref: "#/definitions/creditosAprobaciones"
+      responses:
+        201:
+          description: Ok
+          schema:
+            $ref: "#/definitions/solicitudAprobacionResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorAprobacionResponse400'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'    
+  /{idCredito}/saldos:     
+    get:
+      summary: consulta del saldo actual del credito 
+      description: consulta del saldo de un credito actual
+      tags:
+        - Operaciones de Saldos de Credito
+      parameters:
+        - in: query
+          name: idCredito
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: "#/definitions/saldosCredito"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorSaldosResponse400'
+        404:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+
+  /{idCredito}/pagos:     
+    get:
+      summary: consulta de los pagos realizados al credito 
+      description: consulta de los pagos realizados al credito 
+      tags:
+        - Operaciones de Pagos del Credito
+      parameters:
+        - in: query
+          name: idCredito
+          required: true
+          type: string
+      responses:
+        200:
+          description: Ok
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/pagosCredito"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorPagosResponse400'
+        404:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse404'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  
+  /pagos:
+    post:
+      summary: creacion de un abono para el credito
+      description: alta de un pago asociado a un credito
+      tags:
+        - Operaciones de Pagos del Credito
+      parameters:
+        - in: body
+          name: parametros para realizar un abono
+          required: true
+          schema:
+            $ref: "#/definitions/pagos"
+      responses:
+        201:
+          description: Ok
+          schema:
+            $ref: "#/definitions/pagosCreditoAltaResponse"
+        400:
+          description: Entrada incorrecta
+          schema:
+           $ref: '#/definitions/ErrorResponse400'
+        500:
+          description: Error inesperado
+          schema:
+           $ref: '#/definitions/ErrorResponse500'
+  
+definitions:
+  creditos:
+    type: object
+    properties:
+      pais:
+        type: string
+        description: Pais donde proviene la transaccion del banco
+        example: "Mexico"
+      canal:
+        type: string
+        description: Canal donde proviene la solicitud, portal online  1, atm 2, sucursal 3
+        example: "1"
+      sucursal:
+        type: object
+        $ref: '#/definitions/sucursal'
+      producto:
+        type: string
+        description: Identificador del producto para la apertuda del credito
+        example: "5"
+      monto: 
+        type: string 
+        description: Monto solicitado de credito MXD
+        example: "20000"
+      plazo:
+        type: string
+        description: Plazo del credito seleccionado, expresado en meses
+        example: "2"
+      referencias:
+       type: array
+       items:
+           type: object
+           example: ""
+           $ref: '#/definitions/referenciasPersonales'
+
+  referenciasPersonales:
+    type: object
+    properties:
+      nombre:
+        type: string
+        description: Nombre de la referencia del cliente solicitador del credito
+        example: "Israel"
+      apellidos:
+        type: string
+        description: Apellidos completos de la referencia del cliente
+        example: "Ortiz Feria"
+      tipoReferencia:
+        type: string
+        description: Tipo de Referencia
+        example: "Compañero de Trabajo"
+      aniosConocimiento:
+        type: integer
+        description: Años de conocer al cliente
+        example: "5"
+
+  sucursal:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Identificador de la sucursal
+        example: "54"
+      nombre:
+        type: string
+        description: Nombre de la sucursal
+        example: "Sucural Leones"
+      telefono:
+        type: string
+        description: Telefono de la sucursal
+        example: "5580965421"
+      estado:
+        type: string
+        description: Identificador del estado de la sucursal
+        example: "43"
+      municipio:
+        type: string
+        description: Identificador del municipio
+        example: "10"
+      numero: 
+        type: string
+        description: Numero asignado para cada sucursal del BANCO PODER
+        example: "50392"
+  
+  creditosProceso:
+    type: object
+    properties:
+      idCredito:
+        type: string
+        description: Identificador del Credito solicitado
+        example: "1100305940"
+      fecha: 
+         type: string
+         description: Fecha de apertura del credito
+         example: "2019-02-17"
+      pais:
+        type: string
+        description: Pais donde proviene la transaccion del banco
+        example: "Mexico"
+      canal:
+        type: string
+        description: Canal donde proviene la solicitud, portal online  1, atm 2, sucursal 3
+        example: "1"
+      sucursal:
+        type: object
+        $ref: '#/definitions/sucursal'
+      cliente:
+        type: string
+        description: Identificador del cliente
+        example: "391849"
+      producto:
+        type: string
+        description: Identificador del producto para la apertuda del credito
+        example: "5"
+      monto: 
+        type: string 
+        description: Monto solicitado de credito MXD
+        example: "20000"
+      plazo:
+        type: string
+        description: Plazo del credito seleccionado, expresado en meses
+        example: "2"
+      referencias:
+       type: array
+       items:
+           type: object
+           example: ""
+           $ref: '#/definitions/referenciasPersonales'
+  
+  creditosAprobaciones:
+    type: object
+    properties:
+      idCredito:
+        type: string
+        description: Identificador del Credito solicitado
+        example: "1100305940"
+      idCliente:
+        type: string
+        description: Identificador del cliente
+        example: "391849"
+
+  solicitudCreditoResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "La solicitud del crédito se genero correctamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "201"
+      detalles: 
+        type: object
+        description: Describe la creacion del cliente 
+        $ref: '#/definitions/creditosProceso'
+  
+  solicitudAprobacionResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "La solicitud del crédito se aprobo exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "201"
+
+  solicitudActualizacionResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "La solicitud de credito se ha actualizado exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "200"
+      detalles: 
+        type: object
+        description: Describe la actualizacion del cliente 
+        $ref: '#/definitions/creditosProceso'
+    
+  solicitudBorradoResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "La solicitud de credito se ha dado de baja exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "200"
+
+  saldosCredito:
+    type: object
+    properties:
+      idCredito:
+        type: string
+        description: Identificador del Credito solicitado
+        example: "1100305940"
+      monto: 
+        type: string 
+        description: Monto actual del credito solicitado
+        example: "7000"
+      montoLiquidacion:
+        type: string
+        description: Monto para poder liquidar el credito solicitado
+        example: "10000"
+
+  pagos:
+    type: object
+    properties:
+      idCredito:
+        type: string
+        description: Identificador del Credito solicitado
+        example: "1100305940"
+      concepto:
+        type: string
+        description: Concepto del abono realizado 
+        example: "Abono"
+      importe:
+        type: string
+        description: monto del pago asociado al credito
+        example: "500"
+
+  pagosCredito:
+    type: object
+    properties:
+      idCredito:
+        type: string
+        description: Identificador del Credito solicitado
+        example: "1100305940"
+      capital:
+        type: string
+        description: Identificador del Credito solicitado
+        example: "1100305940"
+      intereses:
+        type: string
+        description: Intereses generados por atrasos en pagos al credito
+        example: "361"
+      detalle: 
+        type: object
+        properties:
+          idPago:
+            type: string
+            description: Identificador del pago
+            example: "12"
+          fechaAplicacion:
+            type: string
+            description: Fecha en que se realizo el pago del credito
+            example: "2019-02-20"
+          concepto:
+            type: string
+            description: Concepto del pago realizado
+            example: "Abono de credito autorizado"
+          importe:
+            type: string
+            description: Cantidad realizada en el pago
+            example: "500"
+         
+  pagosEfectuados:
+    type: object
+    properties:
+      idPago:
+        type: string
+        description: Identificador del pago
+        example: "12"
+      fechaAplicacion:
+        type: string
+        description: Fecha en que se realizo el pago del credito
+        example: "2019-02-20"
+      concepto:
+        type: string
+        description: Concepto del pago realizado
+        example: "Abono de credito autorizado"
+      importe:
+        type: string
+        description: Cantidad realizada en el pago
+        example: "500"
+
+
+  pagosCreditoAltaResponse:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripcion del mensaje
+        example: "El pago se realizo exitosamente"
+      codigo:
+        type: string
+        description: Codigo de operacion para trazabilidad
+        example: "201"
+      detalles: 
+        type: object
+        description: Describe la creacion del abono
+        $ref: '#/definitions/pagosCreditoAlta'
+
+  pagosCreditoAlta:
+    type: object
+    properties:
+      idPago:
+        type: string
+        description: Identificador del pago
+        example: "12"
+      fechaAplicacion:
+        type: string
+        description: Fecha en que se realizo el pago del credito
+        example: "2019-02-20"
+      concepto:
+        type: string
+        description: Concepto del pago realizado
+        example: "Abono de credito autorizado"
+      importe:
+        type: string
+        description: Cantidad realizada en el pago
+        example: "500"
+
+
+  ErrorResponse400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.api-creditos.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Los datos del credito contienen caracteres invalidos"
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Debes introducir correctamente los datos"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "98755343"
+                 
+  ErrorResponse500:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "500.api-creditos.1200"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Error al realizar la operación."
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Ocurrio un error inesperado, intentar nuevamente"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "22920181120162829642"
+  
+            
+  ErrorResponse404:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "404.api-creditos.1100"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "No existe la información solicitada."
+      id:
+        type: string
+        description: Id de la entidad a buscar
+        example: "143"
+      descripcion:
+        type: array
+        items:
+          type: string
+          example: ""
+  ErrorAprobacionResponse400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.api-creditos.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Los datos de la aprobacion contienen caracteres invalidos"
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Debes introducir correctamente los datos"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "876553453"
+  ErrorSaldosResponse400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.api-creditos.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Los datos del saldo a consultar contienen caracteres invalidos"
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Debes introducir correctamente los datos"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "876553453"
+  ErrorPagosResponse400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.api-creditos.1000"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Los datos para consulta de pagos contienen caracteres invalidos"
+      informacion:
+        type: string
+        description: Informacion de como corregir el error o validacion
+        example: "Debes introducir correctamente los datos"
+      tracking: 
+        type: string
+        description: Número de rastreo de la operación
+        example: "987654445"
+                

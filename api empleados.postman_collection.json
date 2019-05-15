@@ -1,0 +1,443 @@
+{
+	"info": {
+		"_postman_id": "12021cc5-0791-4499-8152-d9d6da504679",
+		"name": "api empleados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Empleados post 201",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Omar\",\r\n    \"apellidoMaterno\": \"Gonzalez\",\r\n    \"apellidoPaterno\": \"Ramirez\",\r\n    \"edad\": \"26\",\r\n    \"curp\": \"VEGA780615HDFLML08\",\r\n    \"rfc\": \"CUPU800825569\",\r\n    \"domicilio\": \"Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX\",\r\n    \"imagen\": \"aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8=\",\r\n    \"puesto\": \"Software Engineer Cobol\",\r\n    \"status\": \"Activo\",\r\n    \"numeroDeEmpleado\": \"306949\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados get 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados get id 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados get id 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados get id 400",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=11s",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "11s"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados get id 500",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=200",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados delete 200",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados delete 200 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=110",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "110"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados delete 400",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=110s",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "110s"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados delete 404",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=9",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados delete 500",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1?id=191",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "191"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados put 200",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"2\",\r\n    \"nombre\": \"Omar\",\r\n    \"apellidoMaterno\": \"Gonzalez\",\r\n    \"apellidoPaterno\": \"Ramirez\",\r\n    \"edad\": \"26\",\r\n    \"curp\": \"VEGA780615HDFLML08\",\r\n    \"rfc\": \"CUPU800825569\",\r\n    \"domicilio\": \"Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX\",\r\n    \"imagen\": \"aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8=\",\r\n    \"puesto\": \"Software Engineer Sr Java\",\r\n    \"status\": \"Activo\",\r\n    \"numeroDeEmpleado\": \"306949\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados put 400",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"ss\",\r\n    \"nombre\": \"Omar\",\r\n    \"apellidoMaterno\": \"Gonzalez\",\r\n    \"apellidoPaterno\": \"Ramirez\",\r\n    \"edad\": \"26\",\r\n    \"curp\": \"VEGA780615HDFLML08\",\r\n    \"rfc\": \"CUPU800825569\",\r\n    \"domicilio\": \"Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX\",\r\n    \"imagen\": \"aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8=\",\r\n    \"puesto\": \"Software Engineer Sr Java\",\r\n    \"status\": \"Activo\",\r\n    \"numeroDeEmpleado\": \"306949\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados put 404",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"120\",\r\n    \"nombre\": \"Omar\",\r\n    \"apellidoMaterno\": \"Gonzalez\",\r\n    \"apellidoPaterno\": \"Ramirez\",\r\n    \"edad\": \"26\",\r\n    \"curp\": \"VEGA780615HDFLML08\",\r\n    \"rfc\": \"CUPU800825569\",\r\n    \"domicilio\": \"Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX\",\r\n    \"imagen\": \"aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8=\",\r\n    \"puesto\": \"Software Engineer Sr Java\",\r\n    \"status\": \"Activo\",\r\n    \"numeroDeEmpleado\": \"306949\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Empleados put 500",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"560\",\r\n    \"nombre\": \"Omar\",\r\n    \"apellidoMaterno\": \"Gonzalez\",\r\n    \"apellidoPaterno\": \"Ramirez\",\r\n    \"edad\": \"26\",\r\n    \"curp\": \"VEGA780615HDFLML08\",\r\n    \"rfc\": \"CUPU800825569\",\r\n    \"domicilio\": \"Bugambilias 10, Colonia 10 de abril, Coyoacan CDMX\",\r\n    \"imagen\": \"aHR0cHM6Ly93d3cuYmFzZTY0ZW5jb2RlLm9yZy8=\",\r\n    \"puesto\": \"Software Engineer Sr Java\",\r\n    \"status\": \"Activo\",\r\n    \"numeroDeEmpleado\": \"306949\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/empleados/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"empleados",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
